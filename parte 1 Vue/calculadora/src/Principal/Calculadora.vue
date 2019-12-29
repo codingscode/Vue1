@@ -1,7 +1,24 @@
 <template>
    <div class="calculadora">
        <Display />
-       <Botao />
+       <Botao label="AC" triplo/>
+       <Botao label="/" operacao/>
+       <Botao label="7"/>
+       <Botao label="8"/>
+       <Botao label="9"/>
+       <Botao label="*" operacao/>
+       <Botao label="4"/>
+       <Botao label="5"/>
+       <Botao label="6"/>
+       <Botao label="-" operacao/>
+       <Botao label="1"/>
+       <Botao label="2"/>
+       <Botao label="3"/>
+       <Botao label="+" operacao/>
+       <Botao label="0" duplo/>
+       <Botao label="."/>
+       <Botao label="=" operacao/>
+              
    </div>
 </template>
 
