@@ -1,12 +1,15 @@
 <template>
    <div class="" id="app">
-       <h1>Olá Vue !</h1>
+       <h1>Calculadora</h1>
+       <Calculadora/>
    </div>
 </template>
 
 <script>
-    export default {
+    import Calculadora from "./Principal/Calculadora"
 
+    export default {
+      components: {Calculadora}
     }
 </script>
 
@@ -20,9 +23,9 @@
      font-family: "RobotoMono", monospace;
    }
 
-    body {
-       margin: 0;
-    }
+   body {
+     margin: 0;
+   }
 
     #app {
         display: flex;
@@ -33,6 +36,6 @@
         text-align: center;
 
         color: #fff;
-        background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73))
+        background: linear-gradient(to right, rgb(4, 134, 84), rgb(252, 252, 252))
     }
 </style>

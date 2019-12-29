@@ -9,6 +9,7 @@ new Vue({
 }).$mount("#app")
 
 
+//no terminal : npm run serve
 /* 
  linha 7 substitui render(criarElemento) {
         return criarElemento(App)
