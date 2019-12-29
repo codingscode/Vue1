@@ -1,6 +1,6 @@
 <!-- CTRL + ESPAÇO-->
 <template>
-   <button class="botao" :class="{duplo, triplo, operacao}">
+   <button class="botao" :class="{duplo, triplo, operacao}" @click="$emit('onClick', label)">
        {{label}}
    </button>
 </template>

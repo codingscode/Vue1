@@ -1,23 +1,23 @@
 <template>
    <div class="calculadora">
        <Display value="1000"/>
-       <Botao label="AC" triplo/>
-       <Botao label="/" operacao/>
-       <Botao label="7"/>
-       <Botao label="8"/>
-       <Botao label="9"/>
-       <Botao label="*" operacao/>
-       <Botao label="4"/>
-       <Botao label="5"/>
-       <Botao label="6"/>
-       <Botao label="-" operacao/>
-       <Botao label="1"/>
-       <Botao label="2"/>
-       <Botao label="3"/>
-       <Botao label="+" operacao/>
-       <Botao label="0" duplo/>
-       <Botao label="."/>
-       <Botao label="=" operacao/>
+       <Botao label="AC" triplo @onClick="limparMemoria"/>
+       <Botao label="/" operacao @onClick="setOperacao"/>
+       <Botao label="7" @onClick="addDigito"/>
+       <Botao label="8" @onClick="addDigito"/>
+       <Botao label="9" @onClick="addDigito"/>
+       <Botao label="*" operacao @onClick="setOperacao"/>
+       <Botao label="4" @onClick="addDigito"/>
+       <Botao label="5" @onClick="addDigito"/>
+       <Botao label="6" @onClick="addDigito"/>
+       <Botao label="-" operacao @onClick="setOperacao"/>
+       <Botao label="1" @onClick="addDigito"/>
+       <Botao label="2" @onClick="addDigito"/>
+       <Botao label="3" @onClick="addDigito"/>
+       <Botao label="+" operacao @onClick="setOperacao"/>
+       <Botao label="0" duplo @onClick="addDigito"/>
+       <Botao label="." @onClick="addDigito" />
+       <Botao label="=" operacao @onClick="setOperacao"/>
               
    </div>
 </template>
@@ -27,7 +27,18 @@ import Display from '../componentes/Display'
 import Botao from '../componentes/Botao'
 
 export default {
-   components: {Botao, Display}
+   components: {Botao, Display},
+   methods: {
+       limparMemoria() {
+          console.log('Limpar Memória!')  //testar no console browser
+       },
+       setOperacao(operacao) {
+          console.log('Operacao ' + operacao)
+       },
+       addDigito(n) {
+         console.log('Digito ' + n)
+       }
+   }
 }
 </script>
 
