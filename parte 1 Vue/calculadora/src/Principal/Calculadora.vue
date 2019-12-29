@@ -1,6 +1,6 @@
 <template>
    <div class="calculadora">
-       <Display />
+       <Display value="1000"/>
        <Botao label="AC" triplo/>
        <Botao label="/" operacao/>
        <Botao label="7"/>
