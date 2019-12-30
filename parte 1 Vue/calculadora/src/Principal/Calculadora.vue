@@ -86,11 +86,15 @@ export default {
          this.displayValue = displayValue
          this.limparDisplay = false
 
-         if (n !== ".") {
+         //Alternativa 1
+         this.values[this.atual] = displayValue
+
+         //Alternativa 2
+      /* if (n !== ".") {
             const i = this.atual
             const newValue = parseFloat(displayValue)
             this.values[i] = newValue
-         }
+         } */
        }
    }
 }
