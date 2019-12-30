@@ -1,6 +1,6 @@
 <template>
    <div class="calculadora">
-       <Display value="1000"/>
+       <Display :value="displayValue"/>
        <Botao label="AC" triplo @onClick="limparMemoria"/>
        <Botao label="/" operacao @onClick="setOperacao"/>
        <Botao label="7" @onClick="addDigito"/>
@@ -27,16 +27,70 @@ import Display from '../componentes/Display'
 import Botao from '../componentes/Botao'
 
 export default {
+   data: function() {
+      return {
+         displayValue: "0",
+         limparDisplay: false,
+         operacao: null,
+         values: [0, 0],
+         atual: 0
+      }
+   },
    components: {Botao, Display},
    methods: {
        limparMemoria() {
-          console.log('Limpar Memória!')  //testar no console browser
+          Object.assign(this.$data, this.$options.data())
        },
        setOperacao(operacao) {
-          console.log('Operacao ' + operacao)
+         if (this.atual === 0) {
+            this.operacao = operacao
+            this.atual = 1
+            this.limparDisplay = true
+         }
+         else {
+            if (this.atual === 0) {
+               this.operacao = operacao
+               this.atual = 1
+               this.limparDisplay = true
+            }
+
+            const igual = operacao === "="
+            const atualOperacao = this.operacao
+
+            try {
+               this.values[0] = eval(
+                  `${this.values[0]} ${atualOperacao} ${this.values[1]}`
+               )
+            }
+            catch(e) {
+               this.$emit('onError', e)
+            }
+
+            this.values[1] = 0
+
+            this.displayValue = this.values[0]
+            this.operacao = igual ? null : operacao
+            this.atual = igual ? 0 : 1
+            this.limparDisplay = !igual
+         }
        },
        addDigito(n) {
-         console.log('Digito ' + n)
+         if (n === "." && this.displayValue.includes(".")) {
+           return
+         }
+
+         const limparDisplay = this.displayValue === "0" || this.limparDisplay
+         const atualValue = limparDisplay ? "" : this.displayValue
+         const displayValue = atualValue + n
+
+         this.displayValue = displayValue
+         this.limparDisplay = false
+
+         if (n !== ".") {
+            const i = this.atual
+            const newValue = parseFloat(displayValue)
+            this.values[i] = newValue
+         }
        }
    }
 }
