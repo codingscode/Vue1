@@ -1,16 +1,16 @@
 <template>
    <div id="app">
       <h1>Problema de Monty Hall</h1>
-      <Gift/>
+      <Porta numero="1" :temGift="false"/>
   </div>
 </template>
 
 <script>
-import Gift from './componentes/Gift'
+import Porta from './componentes/Porta'
 
 export default {
    nome: 'App',
-   components: {Gift}
+   components: {Porta}
 }
 </script>
 
