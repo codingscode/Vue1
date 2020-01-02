@@ -1,7 +1,7 @@
 <template>
     <div class="porta-area">
         <div class="porta-frame" :class="{selecionado: selecionado && !aberto}">
-            <Gift v-if="aberta && temGift"/>
+            <Gift v-if="aberto && temGift"/>
         </div>
         <div class="porta" @click="selecionado = !selecionado" :class="{aberto}">
             <div class="numero" :class="{selecionado}">{{numero}}</div>
@@ -58,7 +58,7 @@ export default {
 
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: flex-end; 
     }
 
     .porta {
